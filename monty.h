@@ -65,7 +65,6 @@ void _rotr(stack_t **stack, unsigned int line_number);
 /*========Queue Function=======*/
 void _insert(stack_t **stack, unsigned int line_number);
 void _delete(stack_t **stack, unsigned int line_number);
-void _display();
 /*========Math Function=======*/
 void _add(stack_t **h, unsigned int n);
 void _sub(stack_t **h, unsigned int n);

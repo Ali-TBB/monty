@@ -8,4 +8,6 @@ int main(int ac, char *av[])
 	{
 		print_error(1);
 	}
+	open_file(av[1]);
+	return (0);
 }

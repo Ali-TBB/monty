@@ -75,13 +75,16 @@ void get_fun(char *op, char *value, int lineCount)
 	};
 	if (op[0] == '#')
 		return;
-	for (err = 0, i = 0; func_list[i].opcode != NULL; i++)
+	for (err = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(op, func_list[1].opcode) == 0)
 		{
 			call_fun(func_list[i].f, op, value, lineCount);
+			err = 0;
 		}
 	}
+	if (err == 1)
+		print_error(3, lineCount, op);
 
 }
 void call_fun(opcode_func func, char *op, char *value, int ln)

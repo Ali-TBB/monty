@@ -6,7 +6,8 @@
  */
 void print_ch(stack_t **h, unsigned int n)
 {
-
+	(void)h;
+	(void)n;
 }
 /**
  * print_str - Prints strings from the stack.
@@ -15,5 +16,6 @@ void print_ch(stack_t **h, unsigned int n)
  */
 void print_str(stack_t **h, unsigned int n)
 {
-
+	(void)h;
+	(void)n;
 }

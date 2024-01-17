@@ -4,19 +4,28 @@
  */
 void _insert(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current;
 
+	(void)line_number;
+	if (stack == NULL || *stack == NULL)
+		exit(EXIT_FAILURE);
+	if (head == NULL)
+	{
+		head = *stack;
+		return;
+	}
+	current = head;
+	while (current->next != NULL)
+		current = current->next;
+
+	current->next = *stack;
+	(*stack)->prev =current;
 }
 /**
  * _delete - Deletes a specific element from the stack.
  */
 void _delete(stack_t **stack, unsigned int line_number)
 {
-
-}
-/**
- * _display - Displays the current state of the stack.
- */
-void _display()
-{
-
+	(void)stack;
+	(void)line_number;
 }
