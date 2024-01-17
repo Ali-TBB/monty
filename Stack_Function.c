@@ -84,6 +84,14 @@ void _nop(stack_t **stack, unsigned int line_number)
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
-	(void)line_number;
+	stack_t *current;
+	int i;
+
+	if (stack == NULL || *stack == NULL)
+		print_error2(8, line_number);
+
+	current = *stack;
+	i = current->n;
+	current->n = (current)->next->n;
+	(current)->next->n = i;
 }
