@@ -53,18 +53,18 @@ void split_line(int lineCount, char *line)
 
 	opcode = strtok(line, delim);
 	if (opcode == NULL)
-		return ;
+		return;
 	value = strtok(NULL, delim);
 
 	if (strcmp(opcode, "stack") == 0)
 	{
-			type = 0;
-			return;
+		type = 0;
+		return;
 	}
 	if (strcmp(opcode, "queue") == 0)
 	{
-			type = 1;
-			return;
+		type = 1;
+		return;
 	}
 	get_fun(opcode, value, lineCount);
 }
