@@ -2,14 +2,14 @@
 /**
  * _insert - Inserts a new element at a specific position in the stack.
  */
-void _insert()
+void _insert(stack_t **stack, unsigned int line_number)
 {
 
 }
 /**
  * _delete - Deletes a specific element from the stack.
  */
-void _delete()
+void _delete(stack_t **stack, unsigned int line_number)
 {
 
 }

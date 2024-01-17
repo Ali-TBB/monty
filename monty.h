@@ -36,14 +36,17 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+extern int type;
+extern stack_t *head;
+typedef void (*opcode_func)(stack_t **, unsigned int);
 
 /*========main=======*/
 /*========File Function=======*/
 void open_file(const char *file_path);
 void read_file(FILE *fd);
 void split_line(int lineCount, char *line);
-void get_fun(char *op, int lineCount);
+void get_fun(char *op, char *value, int lineCount);
+void call_fun(opcode_func func, char *op, char *val, int ln);
 /*========String Function=======*/
 void print_ch(stack_t **h, unsigned int n);
 void print_str(stack_t **h, unsigned int n);
@@ -60,8 +63,8 @@ void _swap(stack_t **stack, unsigned int line_number);
 void _rotl(stack_t **stack, unsigned int line_number);
 void _rotr(stack_t **stack, unsigned int line_number);
 /*========Queue Function=======*/
-void _insert();
-void _delete();
+void _insert(stack_t **stack, unsigned int line_number);
+void _delete(stack_t **stack, unsigned int line_number);
 void _display();
 /*========Math Function=======*/
 void _add(stack_t **h, unsigned int n);
@@ -70,4 +73,6 @@ void _mul(stack_t **h, unsigned int n);
 void _div(stack_t **h, unsigned int n);
 void _mod(stack_t **h, unsigned int n);
 
+
+stack_t *create_node(int n);
 #endif

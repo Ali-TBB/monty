@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 /**
@@ -39,17 +40,21 @@ void split_line(int lineCount, char *line)
     if (length > 0 && line[length - 1] == '\n') {
         line[length - 1] = '\0';
     }
-
     opcode = strtok(line, " ");
     value = strtok(NULL, " ");
-
-
+	if (strcmp(opcode, "stack") == 0)
+		type = 0;
+	if (strcmp(opcode, "queue") == 0)
+		type = 1;
+	get_fun(opcode, value, lineCount);
 }
 /**
  * get_fun - Gets the opcode from the file and executes the corresponding function.
  */
-void get_fun(char *op, int lineCount)
+void get_fun(char *op, char *value, int lineCount)
 {
+	int i, err;
+
 	instruction_t func_list[] = {
 		{"push", _push},
 		{"pall", _pall},
@@ -68,4 +73,44 @@ void get_fun(char *op, int lineCount)
 		{"rotr", _rotr},
 		{NULL, NULL}
 	};
+	if (op[0] == '#')
+		return;
+	for (err = 0, i = 0; func_list[i].opcode != NULL; i++)
+	{
+		if (strcmp(op, func_list[1].opcode) == 0)
+		{
+			call_fun(func_list[i].f, op, value, lineCount);
+		}
+	}
+
+}
+void call_fun(opcode_func func, char *op, char *value, int ln)
+{
+	stack_t *node;
+	int i = 0, Signs = 1;
+
+	if (strcmp(op, "push") == 0)
+	{
+		if (value != NULL && value[0] == '-')
+		{
+			value = value + 1;
+			Signs = -1;
+		}
+		if (value == NULL)
+			print_error2(5);
+		while (value[i] != '\0')
+		{
+			if (isdigit(value[i]) == 0)
+				print_error2(5);
+		}
+		node = create_node(atoi(value) * Signs);
+		if (type == 0)
+			func(&node, ln);
+		if (type == 1)
+			_insert(&node, ln);
+	}
+	else
+	{
+		func(&head, ln);
+	}
 }
