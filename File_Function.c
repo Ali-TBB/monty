@@ -45,15 +45,27 @@ void read_file(FILE *file)
  */
 void split_line(int lineCount, char *line)
 {
-	char *opcode;
-	char *value;
+	char *opcode, *value;
+	const char *delim = "\n ";
 
-	opcode = strtok(line, " ");
-	value = strtok(NULL, " ");
+	if (line == NULL)
+		print_error(4);
+
+	opcode = strtok(line, delim);
+	if (opcode == NULL)
+		return ;
+	value = strtok(NULL, delim);
+
 	if (strcmp(opcode, "stack") == 0)
-		type = 0;
+	{
+			type = 0;
+			return;
+	}
 	if (strcmp(opcode, "queue") == 0)
-		type = 1;
+	{
+			type = 1;
+			return;
+	}
 	get_fun(opcode, value, lineCount);
 }
 /**
