@@ -16,5 +16,24 @@ int main(int ac, char *av[])
 		print_error(1);
 	}
 	open_file(av[1]);
+	free_nodes();
 	return (0);
+}
+
+/**
+ * free_nodes - Frees nodes in the stack.
+ */
+void free_nodes(void)
+{
+	stack_t *tmp;
+
+	if (head == NULL)
+		return;
+
+	while (head != NULL)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
 }

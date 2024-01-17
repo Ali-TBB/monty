@@ -44,6 +44,7 @@ extern stack_t *head;
 typedef void (*opcode_func)(stack_t **, unsigned int);
 
 /*========main=======*/
+void free_nodes(void);
 /*========File Function=======*/
 void open_file(const char *file_path);
 void read_file(FILE *fd);
