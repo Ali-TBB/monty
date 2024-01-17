@@ -1,7 +1,5 @@
 #include "monty.h"
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
+
 /**
  * open_file - Opens a file with the given name.
  * @file_path: Name of the file to be opened.
@@ -23,11 +21,11 @@ void read_file(FILE *file)
     size_t len = 0;
     size_t lineCount = 0;
 
-    while (getline(&line, &len, file) != -1) {
-        lineCount++;
+    while (getline(&line, &len, file) != -1)
+	{
         split_line(lineCount, line);
+        lineCount++;
     }
-
     free(line);
 }
 
