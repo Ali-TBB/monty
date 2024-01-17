@@ -22,21 +22,15 @@ void open_file(const char *file_path)
  */
 void read_file(FILE *file)
 {
-	char line[MAX_LINE_LENGTH];
-	int lineCount = 0;
-	size_t len;
+	int lineCount;
+	char *line = NULL;
+	size_t len = 0;
 
-	while (fgets(line, sizeof(line), file) != NULL)
+	for (lineCount = 1; getline(&line, &len, file) != -1; lineCount++)
 	{
-
-		len = strlen(line);
-		if (len > 0 && line[len - 1] == '\n')
-		{
-			line[len - 1] = '\0';
-		}
 		split_line(lineCount, line);
-		lineCount++;
 	}
+	free(line);
 }
 /**
  * split_line - Splits a line into opcode and optional value.

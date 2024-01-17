@@ -7,7 +7,6 @@
 #include <string.h>
 #include <ctype.h>
 
-#define MAX_LINE_LENGTH 1024
 /*=========Struct=========*/
 
 /**
