@@ -1,5 +1,5 @@
-#define  _GNU_SOURCE
 #include "monty.h"
+#include <stdio.h>
 
 /**
  * open_file - Opens a file with the given name.
@@ -22,16 +22,21 @@ void open_file(const char *file_path)
  */
 void read_file(FILE *file)
 {
-	char *line = NULL;
-	size_t len = 0;
-	size_t lineCount = 0;
+	char line[MAX_LINE_LENGTH];
+	int lineCount = 0;
+	size_t len;
 
-	while (getline(&line, &len, file) != -1)
+	while (fgets(line, sizeof(line), file) != NULL)
 	{
+
+		len = strlen(line);
+		if (len > 0 && line[len - 1] == '\n')
+		{
+			line[len - 1] = '\0';
+		}
 		split_line(lineCount, line);
 		lineCount++;
 	}
-	free(line);
 }
 /**
  * split_line - Splits a line into opcode and optional value.
@@ -42,10 +47,7 @@ void split_line(int lineCount, char *line)
 {
 	char *opcode;
 	char *value;
-	size_t length = strlen(line);
 
-	if (length > 0 && line[length - 1] == '\n')
-		line[length - 1] = '\0';
 	opcode = strtok(line, " ");
 	value = strtok(NULL, " ");
 	if (strcmp(opcode, "stack") == 0)
@@ -86,7 +88,7 @@ void get_fun(char *op, char *value, int lineCount)
 		return;
 	for (err = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
-		if (strcmp(op, func_list[1].opcode) == 0)
+		if (strcmp(op, func_list[i].opcode) == 0)
 		{
 			call_fun(func_list[i].f, op, value, lineCount);
 			err = 0;	}
@@ -94,13 +96,7 @@ void get_fun(char *op, char *value, int lineCount)
 	if (err == 1)
 		print_error(3, lineCount, op);
 }
-/**
- * call_fun - Calls a function based on the provided opcode and its arguments.
- * @func: Pointer to the function corresponding to the opcode.
- * @op: Pointer to the opcode string.
- * @value: Pointer to the value string.
- * @ln: Line number of the opcode.
- */
+
 void call_fun(opcode_func func, char *op, char *value, int ln)
 {
 	stack_t *node;
@@ -119,6 +115,7 @@ void call_fun(opcode_func func, char *op, char *value, int ln)
 		{
 			if (isdigit(value[i]) == 0)
 				print_error2(5);
+			i++;
 		}
 		node = create_node(atoi(value) * Signs);
 		if (type == 0)
