@@ -1,0 +1,32 @@
+write me comment like this :
+
+/**
+ * open_file - Opens a file with the given name.
+ * @file_path: Name of the file to be opened.
+ */
+void open_file(const char *file_path)
+
+to this function:
+void print_ch(stack_t **, unsigned int);
+void print_str(stack_t **, unsigned int);
+/*========Error=======*/
+void print_error(int ernum,...);
+void print_error2(int ernum, ...);
+/*========Stack Function=======*/
+void _pop(stack_t **, unsigned int);
+void _pall(stack_t **, unsigned int);
+void _push(stack_t **, unsigned int);
+void _pint(stack_t **, unsigned int);
+void _nop(stack_t **, unsigned int);
+void _swap(stack_t **, unsigned int);
+void _rotl(stack_t **, unsigned int);
+void _rotr(stack_t **, unsigned int);
+/*========Queue Function=======*/
+void _insert(stack_t **, unsigned int);
+void _delete(stack_t **, unsigned int);
+/*========Math Function=======*/
+void _add(stack_t **, unsigned int);
+void _sub(stack_t **, unsigned int);
+void _mul(stack_t **, unsigned int);
+void _div(stack_t **, unsigned int);
+void _mod(stack_t **, unsigned int);
