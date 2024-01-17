@@ -53,23 +53,23 @@ void print_error2(int ernum, ...)
 	{
 		case 5:
 			num = va_arg(args, int);
-			fprintf(stderr, "L%d: usage: push integer", num);
+			fprintf(stderr, "L%d: usage: push integer\n", num);
 			break;
 		case 6:
 			num = va_arg(args, int);
-			fprintf(stderr, "L%d: can't pint, stack empty", num);
+			fprintf(stderr, "L%d: can't pint, stack empty\n", num);
 			break;
 		case 7:
 			num = va_arg(args, int);
-			fprintf(stderr, "L%d: can't pop an empty stack", num);
+			fprintf(stderr, "L%d: can't pop an empty stack\n", num);
 			break;
 		case 8:
 			num = va_arg(args, int);
-			fprintf(stderr, "L%d: can't swap, stack too short", num);
+			fprintf(stderr, "L%d: can't swap, stack too short\n", num);
 			break;
 		case 9:
 			num = va_arg(args, int);
-			fprintf(stderr, "L%d: can't add, stack too short", num);
+			fprintf(stderr, "L%d: can't add, stack too short\n", num);
 			break;
 	}
 	va_end(args);

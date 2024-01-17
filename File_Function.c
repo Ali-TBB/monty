@@ -96,7 +96,13 @@ void get_fun(char *op, char *value, int lineCount)
 	if (err == 1)
 		print_error(3, lineCount, op);
 }
-
+/**
+ * call_fun - Calls a function based on the provided opcode and its arguments.
+ * @func: Pointer to the function corresponding to the opcode.
+ * @op: Pointer to the opcode string.
+ * @value: Pointer to the value string.
+ * @ln: Line number of the opcode.
+ */
 void call_fun(opcode_func func, char *op, char *value, int ln)
 {
 	stack_t *node;
@@ -110,7 +116,7 @@ void call_fun(opcode_func func, char *op, char *value, int ln)
 			Signs = -1;
 		}
 		if (value == NULL)
-			print_error2(5);
+			print_error2(5, ln);
 		while (value[i] != '\0')
 		{
 			if (isdigit(value[i]) == 0)
