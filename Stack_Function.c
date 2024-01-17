@@ -58,39 +58,23 @@ void _pop(stack_t **stack, unsigned int line_number)
 	}
 
 }
-
-void _nop(stack_t **head, unsigned int l)
+/**
+ * _nop - Does nothing.
+ * @stack: Pointer to the top node of the stack.
+ * @line_number: Line number of the opcode.
+ */
+void _nop(stack_t **stack, unsigned int line_number)
 {
-	(void)head;
-	(void)l;
+	(void)stack;
+	(void)line_number;
 }
-void _swap(stack_t **head, unsigned int l)
+/**
+ * _swap - Swaps the top two elements of the stack.
+ * @stack: Pointer to the top node of the stack.
+ * @line_number: Line number of the opcode.
+ */
+void _swap(stack_t **stack, unsigned int line_number)
 {
-	(void)head;
-	(void)l;
-}
-void _sub(stack_t **head, unsigned int l)
-{
-	(void)head;
-	(void)l;
-}
-void _mod(stack_t **head, unsigned int l)
-{
-	(void)head;
-	(void)l;
-}
-void _rotl(stack_t **head, unsigned int l)
-{
-	(void)head;
-	(void)l;
-}
-void _rotr(stack_t **head, unsigned int l)
-{
-	(void)head;
-	(void)l;
-}
-void _pint(stack_t **head, unsigned int l)
-{
-	(void)head;
-	(void)l;
+	(void)stack;
+	(void)line_number;
 }

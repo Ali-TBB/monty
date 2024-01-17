@@ -1,6 +1,8 @@
 #include "monty.h"
 /**
- * _insert - Inserts a new element at a specific position in the stack.
+ * _insert - Inserts a new element into the queue.
+ * @stack: Pointer to the top node of the queue.
+ * @line_number: Line number of the opcode.
  */
 void _insert(stack_t **stack, unsigned int line_number)
 {
@@ -19,10 +21,12 @@ void _insert(stack_t **stack, unsigned int line_number)
 		current = current->next;
 
 	current->next = *stack;
-	(*stack)->prev =current;
+	(*stack)->prev = current;
 }
 /**
- * _delete - Deletes a specific element from the stack.
+ * _delete - Deletes the front element of the queue.
+ * @stack: Pointer to the top node of the queue.
+ * @line_number: Line number of the opcode.
  */
 void _delete(stack_t **stack, unsigned int line_number)
 {

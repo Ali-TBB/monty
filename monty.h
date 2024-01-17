@@ -52,7 +52,7 @@ void call_fun(opcode_func func, char *op, char *val, int ln);
 void print_ch(stack_t **, unsigned int);
 void print_str(stack_t **, unsigned int);
 /*========Error=======*/
-void print_error(int ernum,...);
+void print_error(int ernum, ...);
 void print_error2(int ernum, ...);
 /*========Stack Function=======*/
 void _pop(stack_t **, unsigned int);

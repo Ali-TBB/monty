@@ -46,7 +46,7 @@ void print_error(int ernum, ...)
 void print_error2(int ernum, ...)
 {
 	va_list args;
-	int num; 
+	int num;
 
 	va_start(args, ernum);
 	switch (ernum)

@@ -16,3 +16,34 @@ stack_t *create_node(int n)
 	node->n = n;
 	return (node);
 }
+
+/**
+ * _rotl - Rotates the stack to the top.
+ * @stack: Pointer to the top node of the stack.
+ * @line_number: Line number of the opcode.
+ */
+void _rotl(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+/**
+ * _rotr - Rotates the stack to the bottom.
+ * @stack: Pointer to the top node of the stack.
+ * @line_number: Line number of the opcode.
+ */
+void _rotr(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+/**
+ * _pint - Prints the value at the top of the stack.
+ * @stack: Pointer to the top node of the stack.
+ * @line_number: Line number of the opcode.
+ */
+void _pint(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}

@@ -8,6 +8,7 @@
 void open_file(const char *file_path)
 {
 	FILE *file = fopen(file_path, "r");
+
 	if (file == NULL)
 	{
 		print_error(2, file_path);
@@ -15,7 +16,10 @@ void open_file(const char *file_path)
 	read_file(file);
 	fclose(file);
 }
-
+/**
+ * read_file - Reads the contents of the opened file.
+ * @file: Pointer to the opened file.
+ */
 void read_file(FILE *file)
 {
 	char *line = NULL;
@@ -29,16 +33,19 @@ void read_file(FILE *file)
 	}
 	free(line);
 }
-
+/**
+ * split_line - Splits a line into opcode and optional value.
+ * @lineCount: Line number of the opcode.
+ * @line: Pointer to the line string to be split.
+ */
 void split_line(int lineCount, char *line)
 {
 	char *opcode;
 	char *value;
 	size_t length = strlen(line);
 
-	if (length > 0 && line[length - 1] == '\n') {
+	if (length > 0 && line[length - 1] == '\n')
 		line[length - 1] = '\0';
-	}
 	opcode = strtok(line, " ");
 	value = strtok(NULL, " ");
 	if (strcmp(opcode, "stack") == 0)
@@ -48,7 +55,10 @@ void split_line(int lineCount, char *line)
 	get_fun(opcode, value, lineCount);
 }
 /**
- * get_fun - Gets the opcode from the file and executes the corresponding function.
+ * get_fun - Processes a command and its optional value.
+ * @op: Pointer to the command string.
+ * @value: Pointer to the optional value string.
+ * @lineCount: Line number of the opcode.
  */
 void get_fun(char *op, char *value, int lineCount)
 {
@@ -79,13 +89,18 @@ void get_fun(char *op, char *value, int lineCount)
 		if (strcmp(op, func_list[1].opcode) == 0)
 		{
 			call_fun(func_list[i].f, op, value, lineCount);
-			err = 0;
-		}
+			err = 0;	}
 	}
 	if (err == 1)
 		print_error(3, lineCount, op);
-
 }
+/**
+ * call_fun - Calls a function based on the provided opcode and its arguments.
+ * @func: Pointer to the function corresponding to the opcode.
+ * @op: Pointer to the opcode string.
+ * @value: Pointer to the value string.
+ * @ln: Line number of the opcode.
+ */
 void call_fun(opcode_func func, char *op, char *value, int ln)
 {
 	stack_t *node;

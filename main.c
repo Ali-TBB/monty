@@ -2,6 +2,12 @@
 
 stack_t *head = NULL;
 int type = 0;
+/**
+ * main - entry point
+ * @ac: arguments count
+ * @av: list of arguments
+ * Return: always 0
+ */
 int main(int ac, char *av[])
 {
 
