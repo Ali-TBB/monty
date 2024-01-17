@@ -1,9 +1,10 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 #include <stdio.h>
 #include <stdint.h>
-
-
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 /*=========Struct=========*/
 
 /**
@@ -39,27 +40,34 @@ typedef struct instruction_s
 
 /*========main=======*/
 /*========File Function=======*/
-void open_file(char *file_name);
-void read_file();
-void get_fun();
+void open_file(const char *file_path);
+void read_file(FILE *fd);
+void split_line(int lineCount, char *line);
+void get_fun(char *op, int lineCount);
 /*========String Function=======*/
 void print_ch(stack_t **h, unsigned int n);
 void print_str(stack_t **h, unsigned int n);
 /*========Error=======*/
 void print_error(int ernum,...);
+void print_error2(int ernum, ...);
 /*========Stack Function=======*/
 void _pop(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _rotl(stack_t **stack, unsigned int line_number);
+void _rotr(stack_t **stack, unsigned int line_number);
 /*========Queue Function=======*/
 void _insert();
 void _delete();
 void _display();
 /*========Math Function=======*/
 void _add(stack_t **h, unsigned int n);
-void _sud(stack_t **h, unsigned int n);
+void _sub(stack_t **h, unsigned int n);
 void _mul(stack_t **h, unsigned int n);
 void _div(stack_t **h, unsigned int n);
-void _mol(stack_t **h, unsigned int n);
+void _mod(stack_t **h, unsigned int n);
 
 #endif
