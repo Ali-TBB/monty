@@ -1,9 +1,10 @@
 #include "monty.h"
 
-
+stack_t *head = NULL;
+int type = 0;
 int main(int ac, char *av[])
 {
-	type = 0;
+
 	if (ac == 1)
 	{
 		print_error(1);

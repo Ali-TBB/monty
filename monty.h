@@ -49,29 +49,29 @@ void split_line(int lineCount, char *line);
 void get_fun(char *op, char *value, int lineCount);
 void call_fun(opcode_func func, char *op, char *val, int ln);
 /*========String Function=======*/
-void print_ch(stack_t **h, unsigned int n);
-void print_str(stack_t **h, unsigned int n);
+void print_ch(stack_t **, unsigned int);
+void print_str(stack_t **, unsigned int);
 /*========Error=======*/
 void print_error(int ernum,...);
 void print_error2(int ernum, ...);
 /*========Stack Function=======*/
-void _pop(stack_t **stack, unsigned int line_number);
-void _pall(stack_t **stack, unsigned int line_number);
-void _push(stack_t **stack, unsigned int line_number);
-void _pint(stack_t **stack, unsigned int line_number);
-void _nop(stack_t **stack, unsigned int line_number);
-void _swap(stack_t **stack, unsigned int line_number);
-void _rotl(stack_t **stack, unsigned int line_number);
-void _rotr(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **, unsigned int);
+void _pall(stack_t **, unsigned int);
+void _push(stack_t **, unsigned int);
+void _pint(stack_t **, unsigned int);
+void _nop(stack_t **, unsigned int);
+void _swap(stack_t **, unsigned int);
+void _rotl(stack_t **, unsigned int);
+void _rotr(stack_t **, unsigned int);
 /*========Queue Function=======*/
-void _insert(stack_t **stack, unsigned int line_number);
-void _delete(stack_t **stack, unsigned int line_number);
+void _insert(stack_t **, unsigned int);
+void _delete(stack_t **, unsigned int);
 /*========Math Function=======*/
-void _add(stack_t **h, unsigned int n);
-void _sub(stack_t **h, unsigned int n);
-void _mul(stack_t **h, unsigned int n);
-void _div(stack_t **h, unsigned int n);
-void _mod(stack_t **h, unsigned int n);
+void _add(stack_t **, unsigned int);
+void _sub(stack_t **, unsigned int);
+void _mul(stack_t **, unsigned int);
+void _div(stack_t **, unsigned int);
+void _mod(stack_t **, unsigned int);
 
 
 stack_t *create_node(int n);

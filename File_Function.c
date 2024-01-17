@@ -1,3 +1,4 @@
+#define  _GNU_SOURCE
 #include "monty.h"
 
 /**
@@ -6,40 +7,40 @@
  */
 void open_file(const char *file_path)
 {
-    FILE *file = fopen(file_path, "r");
-    if (file == NULL)
+	FILE *file = fopen(file_path, "r");
+	if (file == NULL)
 	{
 		print_error(2, file_path);
-    }
-    read_file(file);
-    fclose(file);
+	}
+	read_file(file);
+	fclose(file);
 }
 
 void read_file(FILE *file)
 {
-    char *line = NULL;
-    size_t len = 0;
-    size_t lineCount = 0;
+	char *line = NULL;
+	size_t len = 0;
+	size_t lineCount = 0;
 
-    while (getline(&line, &len, file) != -1)
+	while (getline(&line, &len, file) != -1)
 	{
-        split_line(lineCount, line);
-        lineCount++;
-    }
-    free(line);
+		split_line(lineCount, line);
+		lineCount++;
+	}
+	free(line);
 }
 
 void split_line(int lineCount, char *line)
 {
-    char *opcode;
-    char *value;
-    size_t length = strlen(line);
+	char *opcode;
+	char *value;
+	size_t length = strlen(line);
 
-    if (length > 0 && line[length - 1] == '\n') {
-        line[length - 1] = '\0';
-    }
-    opcode = strtok(line, " ");
-    value = strtok(NULL, " ");
+	if (length > 0 && line[length - 1] == '\n') {
+		line[length - 1] = '\0';
+	}
+	opcode = strtok(line, " ");
+	value = strtok(NULL, " ");
 	if (strcmp(opcode, "stack") == 0)
 		type = 0;
 	if (strcmp(opcode, "queue") == 0)
