@@ -87,7 +87,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	stack_t *current;
 	int i;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		print_error2(8, line_number);
 
 	current = *stack;

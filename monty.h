@@ -75,6 +75,5 @@ void _mul(stack_t **, unsigned int);
 void _div(stack_t **, unsigned int);
 void _mod(stack_t **, unsigned int);
 
-
 stack_t *create_node(int n);
 #endif
