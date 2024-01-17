@@ -51,12 +51,21 @@ void _pall(stack_t **stack, unsigned int line_number)
  */
 void _pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current;
+
 	if (type == 1)
 	{
 		_delete(stack, line_number);
 		return;
 	}
+	if (stack == NULL || *stack == NULL)
+		print_error2(7, line_number);
 
+	current = *stack;
+	*stack = current->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(current);
 }
 /**
  * _nop - Does nothing.
