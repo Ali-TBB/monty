@@ -25,8 +25,8 @@ void print_error(int ernum, ...)
 			fprintf(stderr, "Error: Can't open file %s\n", op);
 			break;
 		case 3:
-			op = va_arg(args, char *);
 			num = va_arg(args, int);
+			op = va_arg(args, char *);
 			fprintf(stderr, "L%d: unknown instruction %s\n", num, op);
 			break;
 		case 4:
@@ -36,6 +36,7 @@ void print_error(int ernum, ...)
 			fprintf(stderr, "Unknown error\n");
 	}
 	va_end(args);
+	free_nodes();
 	exit(EXIT_FAILURE);
 }
 /**
@@ -73,5 +74,6 @@ void print_error2(int ernum, ...)
 			break;
 	}
 	va_end(args);
+	free_nodes();
 	exit(EXIT_FAILURE);
 }
