@@ -8,8 +8,14 @@
  */
 void _add(stack_t **h, unsigned int n)
 {
-	(void)h;
-	(void)n;
+	stack_t *current;
+	int i;
+
+	if (h == NULL || *h == NULL || (*h)->next == NULL)
+		print_error2(9, n);
+
+	current = *h;
+	i = current->n + (current)->next->n;
 }
 /**
  * _sud - Subtracts the top element from the second top element of the stack.
