@@ -50,26 +50,22 @@ void print_error2(int ernum, ...)
 	int num;
 
 	va_start(args, ernum);
+	num = va_arg(args, int);
 	switch (ernum)
 	{
 		case 5:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: usage: push integer\n", num);
 			break;
 		case 6:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't pint, stack empty\n", num);
 			break;
 		case 7:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't pop an empty stack\n", num);
 			break;
 		case 8:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't swap, stack too short\n", num);
 			break;
 		case 9:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't add, stack too short\n", num);
 			break;
 	}
@@ -89,27 +85,29 @@ void print_error3(int ernum, ...)
 	int num;
 
 	va_start(args, ernum);
+	num = va_arg(args, int);
 	switch (ernum)
 	{
 		case 10:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't sub, stack too short\n", num);
 			break;
 		case 11:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't div, stack too short\n", num);
 			break;
 		case 12:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: division by zero\n", num);
 			break;
 		case 13:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't mul, stack too short\n", num);
 			break;
 		case 14:
-			num = va_arg(args, int);
 			fprintf(stderr, "L%d: can't mod, stack too short\n", num);
+			break;
+		case 15:
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", num);
+			break;
+		case 16:
+			fprintf(stderr, "L%d: can't pchar, stack empty\n", num);
 			break;
 	}
 	va_end(args);
