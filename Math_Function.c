@@ -32,7 +32,7 @@ void _add(stack_t **h, unsigned int n)
  * @h: Pointer to a pointer pointing to the top node of the stack.
  * @n: Line number of the opcode.
  */
-void _sud(stack_t **h, unsigned int n)
+void _sub(stack_t **h, unsigned int n)
 {
     int i;
 	stack_t *temp;
@@ -104,12 +104,12 @@ void _div(stack_t **h, unsigned int n)
     }
 }
 /**
- * _mol - Computes the modulus of the second top element by
+ * _mod - Computes the modulus of the second top element by
  * the top element of the stack.
  * @h: Pointer to a pointer pointing to the top node of the stack.
  * @n: Line number of the opcode.
  */
-void _mol(stack_t **h, unsigned int n)
+void _mod(stack_t **h, unsigned int n)
 {
     int i;
 	stack_t *temp;
