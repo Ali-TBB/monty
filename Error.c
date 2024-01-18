@@ -77,3 +77,42 @@ void print_error2(int ernum, ...)
 	free_nodes();
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * print_error2 - Prints error messages.
+ * @ernum: Error number.
+ * @...: Variable arguments.
+ */
+void print_error3(int ernum, ...)
+{
+	va_list args;
+	int num;
+
+	va_start(args, ernum);
+	switch (ernum)
+	{
+		case 10:
+			num = va_arg(args, int);
+			fprintf(stderr, "L%d: can't sub, stack too short\n", num);
+			break;
+		case 11:
+			num = va_arg(args, int);
+			fprintf(stderr, "L%d: can't div, stack too short\n", num);
+			break;
+		case 12:
+			num = va_arg(args, int);
+			fprintf(stderr, "L%d: division by zero\n", num);
+			break;
+		case 13:
+			num = va_arg(args, int);
+			fprintf(stderr, "L%d: can't mul, stack too short\n", num);
+			break;
+		case 14:
+			num = va_arg(args, int);
+			fprintf(stderr, "L%d: can't mod, stack too short\n", num);
+			break;
+	}
+	va_end(args);
+	free_nodes();
+	exit(EXIT_FAILURE);
+}

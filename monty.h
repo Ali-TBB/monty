@@ -56,6 +56,7 @@ void print_str(stack_t **, unsigned int);
 /*========Error=======*/
 void print_error(int ernum, ...);
 void print_error2(int ernum, ...);
+void print_error3(int ernum, ...);
 /*========Stack Function=======*/
 void _pop(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
