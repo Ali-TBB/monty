@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdlib.h>
 /**
  * create_node - Creates a node.
  * @n: Number to go inside the node.
@@ -27,10 +28,9 @@ void _rotl(stack_t **stack, unsigned int line_number)
 	stack_t *current, *node;
 
 	(void)line_number;
-	if (stack == NULL || *stack == NULL)
-	{
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
-	}
+
 	current = *stack;
 	node = *stack;
 	(*stack) = (*stack)->next;
