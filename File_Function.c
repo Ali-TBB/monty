@@ -127,7 +127,7 @@ void call_fun(opcode_func func, char *op, char *value, int ln)
 		while (value[i] != '\0')
 		{
 			if (isdigit(value[i]) == 0)
-				print_error2(5);
+				print_error2(5, ln);
 			i++;
 		}
 		node = create_node(atoi(value) * Signs);
