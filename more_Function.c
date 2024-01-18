@@ -24,8 +24,23 @@ stack_t *create_node(int n)
  */
 void _rotl(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *current, *node;
+
 	(void)line_number;
+	if (stack == NULL || *stack == NULL)
+	{
+		return;
+	}
+	current = *stack;
+	node = *stack;
+	(*stack) = (*stack)->next;
+	while (current->next != NULL)
+	{
+		current = current->next;
+	}
+	current->next = node;
+	node->next = NULL;
+	node->prev = current;
 }
 /**
  * _rotr - Rotates the stack to the bottom.
