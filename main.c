@@ -11,7 +11,7 @@ int type = 0;
 int main(int ac, char *av[])
 {
 
-	if (ac == 1)
+	if (ac != 2)
 	{
 		print_error(1);
 	}
