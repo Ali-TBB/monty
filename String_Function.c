@@ -38,6 +38,7 @@ void print_str(stack_t **h, unsigned int n)
 	if (h == NULL || *h == NULL)
 	{
 		putchar('\n');
+		return;
 	}
 	current = *h;
 	while (current != NULL)
