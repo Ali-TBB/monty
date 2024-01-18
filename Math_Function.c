@@ -41,7 +41,7 @@ void _sud(stack_t **h, unsigned int n)
     {
         print_error3(10, n);
     }
-    i = (*h)->n - (*h)->next->n;
+    i = (*h)->next->n - (*h)->n;
     (*h)->next->n = i;
     temp = *h;
     *h = (*h)->next;
