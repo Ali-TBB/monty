@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 
 /**
@@ -8,11 +9,26 @@
  */
 void _add(stack_t **h, unsigned int n)
 {
-	(void)h;
-	(void)n;
+    int i;
+	stack_t *temp;
+
+    if (h == NULL || *h == NULL || (*h)->next == NULL)
+    {
+        print_error2(9, n);
+    }
+    i = (*h)->n + (*h)->next->n;
+    (*h)->next->n = i;
+    temp = *h;
+    *h = (*h)->next;
+    free(temp);
+    if (*h != NULL)
+    {
+        (*h)->prev = NULL;
+    }
 }
+
 /**
- * _sud - Subtracts the top element from the second top element of the stack.
+ * _sud - Subtracts the top element from the second top element of the h.
  * @h: Pointer to a pointer pointing to the top node of the stack.
  * @n: Line number of the opcode.
  */
