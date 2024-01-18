@@ -31,6 +31,27 @@ void print_ch(stack_t **h, unsigned int n)
  */
 void print_str(stack_t **h, unsigned int n)
 {
-	(void)h;
+	int i;
+	stack_t *current;
+
 	(void)n;
+	if (h == NULL || *h == NULL)
+	{
+		putchar('\n');
+	}
+	current = *h;
+	while (current != NULL)
+	{
+		i = current->n;
+		if (i >= 32 && i <= 126)
+		{
+			putchar(i);
+		}
+		else
+		{
+			break;
+		}
+		current = current->next;
+	}
+	putchar('\n');
 }
