@@ -79,7 +79,7 @@ void print_error2(int ernum, ...)
 }
 
 /**
- * print_error2 - Prints error messages.
+ * print_error3 - Prints error messages.
  * @ernum: Error number.
  * @...: Variable arguments.
  */
