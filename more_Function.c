@@ -49,8 +49,36 @@ void _rotl(stack_t **stack, unsigned int line_number)
  */
 void _rotr(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *current, *node;
+	int i;
+
 	(void)line_number;
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	current = *stack;
+	node = *stack;
+	while (current->next != NULL)
+	{
+		current = current->next;
+	}
+	while (1)
+	{
+		if (node == current)
+			break;
+		if (node->next == current && current->prev == node)
+		{
+			i = node->n;
+			node->n = current->n;
+			current->n = i;
+			break;
+		}
+		i = node->n;
+		node->n = current->n;
+		current->n = i;
+		node = node->next;
+		current = current->prev;
+	}
 }
 /**
  * _pint - Prints the value at the top of the stack.
